@@ -6,7 +6,9 @@ let calculatorDefaultState = {
   result: 0,
   displayColorsArray: ["white", "#D7D7D7", "#B9B9B9", "#AFAFAF"],
   background: 'white',
-  i: 1
+  i: 1,
+  calculatorColorsArray: ["#E6E6FA", "#778899", "#708090", "#D7D7D7"],
+  calcBackground: "#E6E6F"
 }
 
 const calculator = (state = calculatorDefaultState, action) => {
@@ -14,7 +16,6 @@ const calculator = (state = calculatorDefaultState, action) => {
   console.log(state, 'action', action);
 
   let arrayClone = state.arrayNumber.slice();
-  let arrayColor = state.displayColorsArray.slice();
 
   switch (action.type) {
     case CONCATENATE_TO_NUMBER:
@@ -95,12 +96,13 @@ const calculator = (state = calculatorDefaultState, action) => {
           arrayNumber: [],
           digitsString: '' + result
         });
-        
+
     case CHANGE_DISPLAY_COLOR: {
       let index = (state.i + 1) % state.displayColorsArray.length;
 
       return Object.assign({}, state, {
         background: state.displayColorsArray[index],
+        calcBackground: state.calculatorColorsArray[index],
         i: index
       });
     }
