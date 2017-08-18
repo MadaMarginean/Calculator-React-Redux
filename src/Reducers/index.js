@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import calculator from './calculator'
-import test from './test'
+import albums from './albums'
 
 export default combineReducers({
-  calculator,
-  test
+  calculator: calculator,
+  albums: albums
 });

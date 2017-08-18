@@ -1,6 +1,5 @@
-import { connect } from 'react-redux'
-import Calculator from '../Components/Calculator'
-import {changeDisplayColor} from '../Actions/actions'
+import { connect } from 'react-redux';
+import Calculator from '../Components/Calculator';
 
 const mapStateToProps = state => {
   return {
