@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Album.css';
 import GridListAlbum from './GridListAlbum';
 import GridListSubheaderAlbum from './GridListSubheaderAlbum';
+import AppBarAlbum from './AppBarAlbum';
 
 class Album extends Component {
 
@@ -15,22 +16,26 @@ class Album extends Component {
 
   render() {
     return (
-      <div className = "album">
-        <table>
-          <tbody>
-            <tr>
-              <th>userId</th>
-              <th>id</th>
-              <th>title</th>
-            </tr>
+      <div>
+        <AppBarAlbum />
 
-            <tr>
-              <th>{this.props.oneAlbum.userId}</th>
-              <th>{this.props.oneAlbum.id}</th>
-              <th>{this.props.oneAlbum.title}</th>
-            </tr>
-        </tbody>
-      </table>
+        <div className = "album">
+          <table>
+            <tbody>
+              <tr>
+                <th>userId</th>
+                <th>id</th>
+                <th>title</th>
+              </tr>
+
+              <tr>
+                <th>{this.props.oneAlbum.userId}</th>
+                <th>{this.props.oneAlbum.id}</th>
+                <th>{this.props.oneAlbum.title}</th>
+              </tr>
+          </tbody>
+        </table>
+      </div>
 
       <GridListAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
 
