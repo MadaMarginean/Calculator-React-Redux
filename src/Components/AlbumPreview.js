@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 class AlbumPreview extends Component {
   render() {
 
-    let {userId, id, title} = this.props;
+    let { id, title} = this.props;
 
     return(
-
+      
       <Link to={'/albums/' + id}>
         <div className = 'Album'>
           <span>{id}. </span>

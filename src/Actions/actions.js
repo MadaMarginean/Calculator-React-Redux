@@ -18,6 +18,11 @@ export const INFO_ABOUT_AN_ALBUM = "INFO_ABOUT_AN_ALBUM";
 export const GET_ALBUM_REQUEST = "GET_ALBUM_REQUEST";
 export const GET_ALBUM_SUCCESS = "GET_ALBUM_SUCCESS";
 export const GET_ALBUM_FAILURE = "GET_ALBUM_FAILURE";
+export const GET_PHOTOS_REQUEST = "GET_PHOTOS_REQUEST";
+export const GET_PHOTOS_SUCCESS = "GET_PHOTOS_SUCCESS";
+export const GET_PHOTOS_FAILURE = "GET_PHOTOS_FAILURE";
+export const CLEAR_PAGE = "CLEAR_PAGE";
+
 export const getAllAlbums = {
   [CALL_API]: {
     endpoint: 'https://jsonplaceholder.typicode.com/albums',
@@ -28,6 +33,23 @@ export const getAllAlbums = {
       GET_ALL_ALBUMS_FAILURE
     ]
   }
+}
+
+export const getPhotosOfAnAlbum = function(id) {
+  return {[CALL_API]: {
+    endpoint: 'https://jsonplaceholder.typicode.com/photos?albumId=' +id,
+    method: 'GET',
+    types: [
+      GET_PHOTOS_REQUEST,
+      GET_PHOTOS_SUCCESS,
+      GET_PHOTOS_FAILURE
+    ]
+  }
+  };
+}
+
+export const clearPage = {
+    type: CLEAR_PAGE
 }
 
 export const concatenateToNumber = function (digit) {

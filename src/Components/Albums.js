@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AlbumPreview from './AlbumPreview'
+import AlbumPreview from './AlbumPreview';
+
 
 class Albums extends Component {
 
