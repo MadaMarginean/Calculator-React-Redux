@@ -1,4 +1,13 @@
-import {CONCATENATE_TO_NUMBER, STORE_NUMBER_TO_ARRAY, ADD, SUBSTRACT, MULTIPLY, DIVISION, EQUAL, CHANGE_DISPLAY_COLOR} from '../Actions/actions.js'
+import {
+  CONCATENATE_TO_NUMBER,
+  STORE_NUMBER_TO_ARRAY,
+  ADD,
+  SUBSTRACT,
+  MULTIPLY,
+  DIVISION,
+  EQUAL,
+  CHANGE_DISPLAY_COLOR
+} from '../Actions/actions.js'
 
 let calculatorDefaultState = {
   digitsString: '',
