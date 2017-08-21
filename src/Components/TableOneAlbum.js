@@ -9,7 +9,6 @@ import {
 } from 'material-ui/Table';
 import PropTypes from 'prop-types';
 
-const style = {margin: 5};
 
 const TableOneAlbum = (props) => (
   <Table>
@@ -29,7 +28,7 @@ const TableOneAlbum = (props) => (
         <TableRowColumn>{props.oneAlbum.title}</TableRowColumn>
 
       </TableRow>
-      
+
     </TableBody>
   </Table>
 );
