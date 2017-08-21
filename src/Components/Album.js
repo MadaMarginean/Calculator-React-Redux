@@ -4,6 +4,8 @@ import './Album.css';
 import GridListAlbum from './GridListAlbum';
 import GridListSubheaderAlbum from './GridListSubheaderAlbum';
 import AppBarAlbum from './AppBarAlbum';
+import TableImages from './TableImages';
+import TableOneAlbum from './TableOneAlbum';
 
 class Album extends Component {
 
@@ -20,22 +22,10 @@ class Album extends Component {
         <AppBarAlbum />
 
         <div className = "album">
-          <table>
-            <tbody>
-              <tr>
-                <th>userId</th>
-                <th>id</th>
-                <th>title</th>
-              </tr>
+            <TableOneAlbum oneAlbum = {this.props.oneAlbum} />
+        </div>
 
-              <tr>
-                <th>{this.props.oneAlbum.userId}</th>
-                <th>{this.props.oneAlbum.id}</th>
-                <th>{this.props.oneAlbum.title}</th>
-              </tr>
-          </tbody>
-        </table>
-      </div>
+      <TableImages photosOfAnAlbum = {this.props.photosOfAnAlbum}/>
 
       <GridListAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
 

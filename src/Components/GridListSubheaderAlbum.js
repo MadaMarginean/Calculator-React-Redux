@@ -30,7 +30,7 @@ const GridListSubheaderAlbum = (props) => (
           key={index}
           actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
         >
-          <img src={imgURL} />
+          <img src={imgURL} alt=""/>
         </GridTile>
       ))}
     </GridList>

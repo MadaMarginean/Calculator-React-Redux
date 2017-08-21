@@ -9,7 +9,7 @@ import Home from './Components/Home';
 import AlbumsContainer from './Containers/AlbumsContainer';
 import AlbumContainer from './Containers/AlbumContainer';
 
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+        <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
           <Router history={browserHistory}>
             <Switch>
 
