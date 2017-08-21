@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './Album.css';
 import GridListAlbum from './GridListAlbum';
+import GridListSubheaderAlbum from './GridListSubheaderAlbum';
 
 class Album extends Component {
 
@@ -31,7 +32,9 @@ class Album extends Component {
         </tbody>
       </table>
 
-      <GridListAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum}/>
+      <GridListAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
+
+      <GridListSubheaderAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
 
       </div>
     );
