@@ -5,6 +5,7 @@ export const SUBSTRACT = "SUBSTRACT";
 export const MULTIPLY = "MULTIPLY";
 export const DIVISION = "DIVISION";
 export const EQUAL = "EQUAL";
+export const CHANGE_DISPLAY_COLOR = "CHANGE_DISPLAY_COLOR";
 
 export const concatenateToNumber = function (digit) {
   return {
@@ -46,5 +47,11 @@ export const division = function () {
 export const equal = function () {
   return {
     type: EQUAL
+  }
+}
+
+export const changeDisplayColor = function () {
+  return {
+    type: CHANGE_DISPLAY_COLOR,
   }
 }

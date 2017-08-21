@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import logo from './logo.svg';
 import './SpecialButtonGroup.css';
 import Button from './Button';
 import PropTypes from "prop-types";
@@ -8,7 +7,7 @@ import PropTypes from "prop-types";
 class SpecialButtonGroup extends Component {
 
   render() {
-    //const specialButtons = this.renderSpecialButtons();
+
     const {
       storeNumberToArray,
       onAddButtonClick,
