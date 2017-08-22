@@ -2,13 +2,15 @@ import {
   GET_ALL_POSTS_SUCCESS,
   GET_POST_SUCCESS,
   CLEAR_PAGE,
-  GET_USER_SUCCESS
+  GET_USER_SUCCESS,
+  GET_COMMENTS_SUCCESS
 } from '../Actions/actions';
 
 const postsDefaultState = {
   postsArray: [],
   onePost: {},
-  user: {}
+  user: {},
+  comments: []
 };
 
 const posts = (state = postsDefaultState, action) => {
@@ -26,7 +28,12 @@ const posts = (state = postsDefaultState, action) => {
     case GET_USER_SUCCESS:
       return Object.assign({}, state,{
         user: action.payload
-      });  
+      });
+
+      case GET_COMMENTS_SUCCESS:
+        return Object.assign({}, state,{
+          comments: action.payload
+        });
 
     case CLEAR_PAGE:
       return postsDefaultState;

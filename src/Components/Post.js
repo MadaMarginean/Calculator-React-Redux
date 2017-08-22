@@ -14,26 +14,42 @@ class Post extends Component {
 
   render() {
     return (
-      <Card>
-        <CardHeader
-          title= {this.props.user.name}
-          subtitle= {this.props.user.username}
-        /> }
-       <CardMedia
-          overlay={<CardTitle title= {this.props.user.website}  />}
-        >
-          <img src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="" />
-        </CardMedia>
+      <div>
+        <Card>
+          <CardHeader
+            title= {this.props.user.name}
+            subtitle= {this.props.user.username}
+          /> }
+         <CardMedia
+            overlay={<CardTitle title= {this.props.user.website}  />}
+          >
+            <img src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="" />
+          </CardMedia>
 
-        <CardTitle title = {this.props.onePost.title} />
-        <CardText>
-          {this.props.onePost.body}
-        </CardText>
-        <CardActions>
-          <FlatButton label="Action1" />
-          <FlatButton label="Action2" />
-        </CardActions>
-      </Card>
+          <CardTitle title = {this.props.onePost.title} />
+          <CardText>
+            {this.props.onePost.body}
+          </CardText>
+          <CardActions>
+            <FlatButton label="Action1" />
+            <FlatButton label="Action2" />
+          </CardActions>
+        </Card>
+
+          {this.props.comments.map ((comm, index) =>(
+            <Card key = {index}>
+              <CardHeader
+                title={comm.name}
+                subtitle={comm.email}
+                />
+
+              <CardText >
+                {comm.body}
+              </CardText>
+            </Card>
+          ))}
+      </div>
+
     );
   }
 
@@ -47,5 +63,6 @@ export default Post;
 Post.propTypes = {
   onePost: PropTypes.object.isRequired,
   getPost: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired
 }
