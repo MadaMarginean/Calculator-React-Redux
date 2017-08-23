@@ -34,6 +34,9 @@ export const GET_USER_FAILURE = "GET_USER_FAILURE";
 export const GET_COMMENTS_REQUEST = "GET_COMMENTS_REQUEST";
 export const GET_COMMENTS_SUCCESS = "GET_COMMENTS_SUCCESS";
 export const GET_COMMENTS_FAILURE = "GET_COMMENTS_FAILURE";
+export const POST_COMMENT_REQUEST = "POST_COMMENT_REQUEST";
+export const POST_COMMENT_SUCCESS = "POST_COMMENT_SUCCESS";
+export const POST_COMMENT_FAILURE = "POST_COMMENT_FAILURE";
 
 export const getAllAlbums = {
   [CALL_API]: {
@@ -84,6 +87,29 @@ export const getCommentsForAPost = function(id) {
         GET_COMMENTS_SUCCESS,
         GET_COMMENTS_FAILURE
       ]
+    }
+  };
+}
+
+export const addAComment = function(id, comment) {
+  return {
+    [CALL_API]: {
+      endpoint: `https://jsonplaceholder.typicode.com/comments`,
+      method: 'POST',
+      types: [
+        POST_COMMENT_REQUEST,
+        POST_COMMENT_SUCCESS,
+        POST_COMMENT_FAILURE
+      ],
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        postId: id,
+        email: comment.email,
+        name: comment.name,
+        body: comment.body
+      })
     }
   };
 }

@@ -7,7 +7,9 @@
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.11",
-    "redux-api-middleware": "^2.0.0-beta.3"
+    "react-textfield": "0.0.6",
+    "redux-api-middleware": "^2.0.0-beta.3",
+    "validate.js": "^0.11.1"
   },
   "scripts": {
     "start": "react-scripts start",

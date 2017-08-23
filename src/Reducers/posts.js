@@ -3,7 +3,8 @@ import {
   GET_POST_SUCCESS,
   CLEAR_PAGE,
   GET_USER_SUCCESS,
-  GET_COMMENTS_SUCCESS
+  GET_COMMENTS_SUCCESS,
+  POST_COMMENT_SUCCESS
 } from '../Actions/actions';
 
 const postsDefaultState = {
@@ -26,14 +27,23 @@ const posts = (state = postsDefaultState, action) => {
       });
 
     case GET_USER_SUCCESS:
-      return Object.assign({}, state,{
+      return Object.assign({}, state, {
         user: action.payload
       });
 
-      case GET_COMMENTS_SUCCESS:
-        return Object.assign({}, state,{
-          comments: action.payload
-        });
+    case GET_COMMENTS_SUCCESS:
+      return Object.assign({}, state, {
+        comments: action.payload
+      });
+
+    case POST_COMMENT_SUCCESS:
+      let commentsClone = state.comments.slice();
+
+      commentsClone.push(action.payload);
+
+      return Object.assign({}, state, {
+        comments: commentsClone
+      });
 
     case CLEAR_PAGE:
       return postsDefaultState;
