@@ -8,6 +8,8 @@ import browserHistory from './history';
 import Home from './Components/Home';
 import AlbumsContainer from './Containers/AlbumsContainer';
 import AlbumContainer from './Containers/AlbumContainer';
+import PostsContainer from './Containers/PostsContainer';
+import PostContainer from './Containers/PostContainer';
 
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -30,6 +32,8 @@ class App extends Component {
               <Route path = "/calculator" component = {CalculatorContainer} />
               <Route exact path = "/albums/:id" component = {AlbumContainer} />
               <Route path = "/albums" component = {AlbumsContainer} />
+              <Route path = "/posts/:id" component = {PostContainer} />
+              <Route exact path = "/posts" component = {PostsContainer} />
 
             </Switch>
           </Router>
@@ -40,5 +44,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const storeFromConfigureStore = configureStore(initialState);
