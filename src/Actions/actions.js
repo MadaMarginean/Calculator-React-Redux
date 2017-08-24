@@ -37,6 +37,9 @@ export const GET_COMMENTS_FAILURE = "GET_COMMENTS_FAILURE";
 export const POST_COMMENT_REQUEST = "POST_COMMENT_REQUEST";
 export const POST_COMMENT_SUCCESS = "POST_COMMENT_SUCCESS";
 export const POST_COMMENT_FAILURE = "POST_COMMENT_FAILURE";
+export const PUT_COMMENT_REQUEST = "PUT_COMMENT_REQUEST";
+export const PUT_COMMENT_SUCCESS = "PUT_COMMENT_SUCCESS";
+export const PUT_COMMENT_FAILURE = "PUT_COMMENT_FAILURE";
 
 export const getAllAlbums = {
   [CALL_API]: {
@@ -66,7 +69,7 @@ export const getAllPosts = {
 export const getInfoAboutAPost = function(id) {
   return {
     [CALL_API]: {
-      endpoint: 'https://jsonplaceholder.typicode.com/posts/' + id,
+      endpoint: `https://jsonplaceholder.typicode.com/posts/${id}`,
       method: 'GET',
       types: [
         GET_POST_REQUEST,
@@ -114,10 +117,33 @@ export const addAComment = function(id, comment) {
   };
 }
 
+export const editAComment = function(id, comment) {
+  return {
+    [CALL_API]: {
+      endpoint: `https://jsonplaceholder.typicode.com/comments/${id}`,
+      method: 'PUT',
+      types: [
+        PUT_COMMENT_REQUEST,
+        PUT_COMMENT_SUCCESS,
+        PUT_COMMENT_FAILURE
+      ],
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        postId: comment.postId,
+        email: comment.email,
+        name: comment.name,
+        body: comment.body
+      })
+    }
+  };
+}
+
 export const getUser = function(id) {
   return {
     [CALL_API]: {
-      endpoint: 'https://jsonplaceholder.typicode.com/users/' + id,
+      endpoint: `https://jsonplaceholder.typicode.com/users/${id}`,
       method: 'GET',
       types: [
         GET_USER_REQUEST,
@@ -131,7 +157,7 @@ export const getUser = function(id) {
 export const getPhotosOfAnAlbum = function(id) {
   return {
     [CALL_API]: {
-      endpoint: 'https://jsonplaceholder.typicode.com/photos?albumId=' + id,
+      endpoint: `https://jsonplaceholder.typicode.com/photos?albumId=${id}`,
       method: 'GET',
       types: [
         GET_PHOTOS_REQUEST,
@@ -198,7 +224,7 @@ export const changeDisplayColor = function () {
 export const getInfoAboutAnAlbum = function(id) {
   return {
     [CALL_API]: {
-    endpoint: 'https://jsonplaceholder.typicode.com/albums/' + id,
+    endpoint: `https://jsonplaceholder.typicode.com/albums/${id}`,
     method: 'GET',
     types: [
       GET_ALBUM_REQUEST,
