@@ -2,55 +2,11 @@ import React, {Component} from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
-import TextField from 'material-ui/TextField';
 import './Post.css';
-import RaisedButton from 'material-ui/RaisedButton';
-import validate from 'validate.js';
+import CommentBox from './CommentBox';
+import Comments from './Comments';
 
 class Post extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      body: [],
-      email: [],
-      name: []
-    };
-
-  }
-
-  resetState() {
-    this.setState({
-      body: [],
-      email: [],
-      name: []
-    });
-  }
-
-  applyValidation(newComment) {
-    let constraints = {
-      email: {
-        email: true
-      },
-      name: {
-        length: {minimum: 6}
-      },
-      body: {
-        length: {minimum: 6}
-      }
-    };
-    let errorMessages = validate(newComment, constraints);
-
-    this.resetState();
-
-    if (!errorMessages) {
-      return true;
-    }
-
-    this.setState(errorMessages);
-
-    return false;
-  }
 
   componentWillMount()
   {
@@ -59,18 +15,16 @@ class Post extends Component {
     this.props.getPost(postId);
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
+  onCreateSubmitValidated(newComment) {
     let postId = this.props.match.params.id;
-    let newComment = {
-      name: this.name.getValue(),
-      email: this.email.getValue(),
-      body: this.comment.getValue()
-    };
 
-    if (this.applyValidation(newComment)) {
-      this.props.createComment(postId, newComment);
-    }
+    this.props.createComment(postId, newComment);
+  }
+
+  onEditSubmitValidated(newComment) {
+    let postId = this.props.match.params.id;
+
+    this.props.updateComment(postId, newComment);
   }
 
   render() {
@@ -100,46 +54,10 @@ class Post extends Component {
         </Card>
 
         <div className = "add-a-comment">Add a comment</div>
-
-        <div className = "comment-box">
-          <form onSubmit={this._handleSubmit.bind(this)}>
-
-            <TextField
-              ref = {(name) => this.name = name}
-              hintText="Comment title*"
-              errorText={this.state.name[0] || ''}
-            /><br />
-            <TextField
-              ref = {(email) => this.email = email}
-              hintText="Email*"
-              errorText={this.state.email[0] || ''}
-            /><br />
-            <TextField
-              ref = {(comment) => this.comment = comment}
-              hintText="Comment"
-              errorText={this.state.body[0] || ''}
-              floatingLabelText="Comment*"
-              multiLine={true}
-              rows={2}
-            /><br />
-
-            <RaisedButton type="submit" label="Submit" />
-          </form>
-        </div>
+        <CommentBox onSubmitValidated ={this.onCreateSubmitValidated.bind(this)} />
 
         <div className = "comments">Comments</div>
-        {this.props.comments.map ((comm, index) =>(
-          <Card key = {index}>
-            <CardHeader
-              title={comm.name}
-              subtitle={comm.email}
-            />
-
-            <CardText >
-              {comm.body}
-            </CardText>
-          </Card>
-        ))}
+        <Comments comments = {this.props.comments} onSubmitValidated = {this.onEditSubmitValidated.bind(this)}/>
       </div>
 
     );
@@ -157,5 +75,7 @@ Post.propTypes = {
   getPost: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   comments: PropTypes.array.isRequired,
-  createComment: PropTypes.func.isRequired
+  createComment: PropTypes.func.isRequired,
+  clearPage: PropTypes.func.isRequired,
+  updateComment: PropTypes.func.isRequired
 }
