@@ -40,6 +40,9 @@ export const POST_COMMENT_FAILURE = "POST_COMMENT_FAILURE";
 export const PUT_COMMENT_REQUEST = "PUT_COMMENT_REQUEST";
 export const PUT_COMMENT_SUCCESS = "PUT_COMMENT_SUCCESS";
 export const PUT_COMMENT_FAILURE = "PUT_COMMENT_FAILURE";
+export const PUT_POST_REQUEST = "PUT_POST_REQUEST";
+export const PUT_POST_SUCCESS = "PUT_POST_SUCCESS";
+export const PUT_POST_FAILURE = "PUT_POST_FAILURE";
 
 export const getAllAlbums = {
   [CALL_API]: {
@@ -76,6 +79,29 @@ export const getInfoAboutAPost = function(id) {
         GET_POST_SUCCESS,
         GET_POST_FAILURE
       ]
+    }
+  };
+}
+
+export const editAPost = function(onePost) {
+  return {
+    [CALL_API]: {
+      endpoint: `https://jsonplaceholder.typicode.com/posts/${onePost.id}`,
+      method: 'PUT',
+      types: [
+        PUT_POST_REQUEST,
+        PUT_POST_SUCCESS,
+        PUT_POST_FAILURE
+      ],
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: onePost.id,
+        userId: onePost.userId,
+        title: onePost.title,
+        body: onePost.body
+      })
     }
   };
 }
@@ -117,10 +143,10 @@ export const addAComment = function(id, comment) {
   };
 }
 
-export const editAComment = function(id, comment) {
+export const editAComment = function(comment) {
   return {
     [CALL_API]: {
-      endpoint: `https://jsonplaceholder.typicode.com/comments/${id}`,
+      endpoint: `https://jsonplaceholder.typicode.com/comments/${comment.id}`,
       method: 'PUT',
       types: [
         PUT_COMMENT_REQUEST,
@@ -132,6 +158,7 @@ export const editAComment = function(id, comment) {
       },
       body: JSON.stringify({
         postId: comment.postId,
+        id: comment.id,
         email: comment.email,
         name: comment.name,
         body: comment.body

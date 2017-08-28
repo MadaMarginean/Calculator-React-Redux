@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import './Post.css';
 import CommentBox from './CommentBox';
 import Comments from './Comments';
+import Dialog from 'material-ui/Dialog';
+import RaisedButton from 'material-ui/RaisedButton';
+import EditPostForm from './EditPostForm';
 
 class Post extends Component {
 
@@ -22,13 +25,34 @@ class Post extends Component {
   }
 
   onEditSubmitValidated(newComment) {
-    let postId = this.props.match.params.id;
-
-    this.props.updateComment(postId, newComment);
+    this.props.updateComment(newComment);
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {open: false, openEdit: false, openAdd: false};
+  }
+
+  handleOpenEdit = () => {
+   this.setState({open: true, openEdit: true, openAdd: false});
+ };
+
+ handleOpenAdd = () => {
+  this.setState({open: true, openEdit: false, openAdd: true});
+};
+
+ handleClose = () => {
+   this.setState({open: false, openEdit: false, openAdd: false});
+ };
+
   render() {
-    console.log('this.state', this.state);
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onClick={this.handleClose}
+      />
+    ];
 
     return (
       <div>
@@ -36,7 +60,8 @@ class Post extends Component {
           <CardHeader
             title= {this.props.user.name}
             subtitle= {this.props.user.username}
-          /> }
+          />
+
          <CardMedia
             overlay={<CardTitle title= {this.props.user.website}  />}
           >
@@ -48,13 +73,29 @@ class Post extends Component {
             {this.props.onePost.body}
           </CardText>
           <CardActions>
-            <FlatButton label="Action1" />
-            <FlatButton label="Action2" />
+            <RaisedButton label="Edit post" className = "edit-post-btn" onClick={this.handleOpenEdit} primary={true} />
+            <Dialog
+              title="Edit post"
+              actions={actions}
+              modal={false}
+              open={this.state.openEdit}
+              onRequestClose={this.handleClose}
+            >
+              <EditPostForm handleClose={this.handleClose} />
+            </Dialog>
+
+            <RaisedButton label="Add a comment" className = "edit-post-btn" onClick={this.handleOpenAdd} primary={true} />
+            <Dialog
+              title="Add a comment"
+              actions={actions}
+              modal={false}
+              open={this.state.openAdd}
+              onRequestClose={this.handleClose}
+            >
+              <CommentBox onSubmitValidated ={this.onCreateSubmitValidated.bind(this)} />
+            </Dialog>
           </CardActions>
         </Card>
-
-        <div className = "add-a-comment">Add a comment</div>
-        <CommentBox onSubmitValidated ={this.onCreateSubmitValidated.bind(this)} />
 
         <div className = "comments">Comments</div>
         <Comments comments = {this.props.comments} onSubmitValidated = {this.onEditSubmitValidated.bind(this)}/>
@@ -68,8 +109,6 @@ class Post extends Component {
   }
 }
 
-export default Post;
-
 Post.propTypes = {
   onePost: PropTypes.object.isRequired,
   getPost: PropTypes.func.isRequired,
@@ -79,3 +118,5 @@ Post.propTypes = {
   clearPage: PropTypes.func.isRequired,
   updateComment: PropTypes.func.isRequired
 }
+
+export default Post;

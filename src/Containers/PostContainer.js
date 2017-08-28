@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getInfoAboutAPost, clearPage, getUser, getCommentsForAPost, addAComment, editAComment } from '../Actions/actions';
+import { getInfoAboutAPost, clearPage, getUser, getCommentsForAPost, addAComment, editAComment, editAPost } from '../Actions/actions';
 import Post from '../Components/Post'
 
 const mapStateToProps = state => {
@@ -22,8 +22,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(addAComment(id, comment))
     },
 
-    updateComment: function(id, comment) {
-      dispatch(editAComment(id, comment))
+    updateComment: function(comment) {
+      dispatch(editAComment(comment))
     },
 
     clearPage: function(){
