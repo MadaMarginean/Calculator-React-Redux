@@ -4,8 +4,10 @@ import {
   CLEAR_PAGE,
   GET_USER_SUCCESS,
   GET_COMMENTS_SUCCESS,
-  POST_COMMENT_SUCCESS
-} from '../Actions/actions';
+  POST_COMMENT_SUCCESS,
+  PUT_COMMENT_SUCCESS,
+  PUT_POST_SUCCESS
+} from '../config/constants';
 
 const postsDefaultState = {
   postsArray: [],
@@ -15,6 +17,8 @@ const postsDefaultState = {
 };
 
 const posts = (state = postsDefaultState, action) => {
+  let commentsClone;
+
   switch (action.type) {
     case GET_ALL_POSTS_SUCCESS:
       return Object.assign({}, state, {
@@ -37,13 +41,34 @@ const posts = (state = postsDefaultState, action) => {
       });
 
     case POST_COMMENT_SUCCESS:
-      let commentsClone = state.comments.slice();
-
+      commentsClone = state.comments.slice();
       commentsClone.push(action.payload);
 
       return Object.assign({}, state, {
         comments: commentsClone
       });
+
+    case PUT_COMMENT_SUCCESS:
+      let modifiedCommentIndex;
+      console.log("comments", state.comments);
+      for (var i = 0; i < state.comments.length; i++) {
+        if (state.comments[i].id === action.payload.id) {
+          modifiedCommentIndex = i;
+          break;
+        }
+      }
+      commentsClone = state.comments.slice();
+      commentsClone[modifiedCommentIndex] = action.payload;
+      console.log("commentsClone, commentsClone[modifiedCommentIndex] ", commentsClone, commentsClone[modifiedCommentIndex]);
+
+      return Object.assign({}, state, {
+        comments: commentsClone
+      })
+
+    case PUT_POST_SUCCESS:
+    return Object.assign({}, state, {
+      onePost: action.payload
+    })
 
     case CLEAR_PAGE:
       return postsDefaultState;

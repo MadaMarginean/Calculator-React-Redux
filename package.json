@@ -9,12 +9,17 @@
     "react-scripts": "1.0.11",
     "react-textfield": "0.0.6",
     "redux-api-middleware": "^2.0.0-beta.3",
+    "redux-form": "^7.0.3",
+    "redux-thunk": "^2.2.0",
     "validate.js": "^0.11.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts-with-sass start",
+    "build": "react-scripts-with-sass build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "create-react-app-sass": "^1.1.0"
   }
 }

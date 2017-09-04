@@ -1,21 +1,15 @@
-import { connect } from 'react-redux'
-import DisplayScreen from '../Components/DisplayScreen'
-import {changeDisplayColor} from '../Actions/actions'
+import { connect } from 'react-redux';
+import DisplayScreen from '../components/calculator/DisplayScreen';
+import { changeDisplayColor } from '../actions/calculator';
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     digitsString: state.calculator.digitsString,
     background: state.calculator.background
-  }
-};
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onDisplayClick: function() {
-      dispatch(changeDisplayColor())
-    }
-  };
-}
+const mapDispatchToProps = {
+  onDisplayClick: changeDisplayColor
+};
 
 const displayScreenContainer = connect(mapStateToProps, mapDispatchToProps)(DisplayScreen)
 

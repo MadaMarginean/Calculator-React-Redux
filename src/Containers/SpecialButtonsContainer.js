@@ -1,37 +1,22 @@
-import { connect } from 'react-redux'
-import { storeNumberToArray, add, substract, multiply, division, equal } from '../Actions/actions'
-import SpecialButtonGroup from '../Components/SpecialButtonGroup'
+import { connect } from 'react-redux';
+import {
+storeNumberToArray,
+add,
+substract,
+multiply,
+division,
+equal } from '../actions/calculator';
+import SpecialButtonGroup from '../components/calculator/SpecialButtonGroup';
 
-const mapStateToProps = state => {
-  return {
-
-  }
+const mapDispatchToProps = {
+  storeNumberToArray: storeNumberToArray,
+  onAddButtonClick: add,
+  onSubstractButtonClick: substract,
+  onMultiplyButtonClick: multiply,
+  onDivisionButtonClick: division,
+  onEqualButtonClick: equal
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    storeNumberToArray: function(){
-      dispatch(storeNumberToArray())
-    },
-    onAddButtonClick: function(){
-      dispatch(add())
-    },
-    onSubstractButtonClick: function(){
-      dispatch(substract())
-    },
-    onMultiplyButtonClick: function(){
-      dispatch(multiply())
-    },
-    onDivisionButtonClick: function(){
-      dispatch(division())
-    },
-    onEqualButtonClick: function(){
-      dispatch(equal())
-    }
-  }
-}
-
-const specialButtonContainer = connect(mapStateToProps, mapDispatchToProps)(SpecialButtonGroup);
-
+const specialButtonContainer = connect(null, mapDispatchToProps)(SpecialButtonGroup);
 
 export default specialButtonContainer

@@ -1,20 +1,14 @@
 import { connect } from 'react-redux';
-import { getAllAlbums } from '../Actions/actions';
-import Albums from '../Components/Albums'
+import { getAllAlbums } from '../actions/albums';
+import Albums from '../components/albums/Albums'
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     albumsObj: state.albums.albumsObj
-  }
-};
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    requestAllAlbums: function() {
-      dispatch(getAllAlbums)
-    }
-  };
-}
+const mapDispatchToProps = {
+    requestAllAlbums: getAllAlbums
+};
 
 const displayAlbumsContainer = connect(mapStateToProps, mapDispatchToProps)(Albums);
 
