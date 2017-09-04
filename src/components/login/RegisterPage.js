@@ -1,5 +1,5 @@
 import React from 'react';
-import Register from './Register';
+import RegisterContainer from '../../containers/RegisterContainer';
 import BlueLayout from '../common/BlueLayout';
 
 class RegisterPage extends React.Component {
@@ -8,7 +8,7 @@ class RegisterPage extends React.Component {
       <BlueLayout className="register-page">
         <div className="log-in-text">Register Now!</div>
         <div className="register-page">
-          <Register/>
+          <RegisterContainer />
         </div>
       </BlueLayout>
     );

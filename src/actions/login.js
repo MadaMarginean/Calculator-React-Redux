@@ -26,17 +26,9 @@ export const login = credentials => dispatch => {
 }
 
 export const register = () => ({
-    type: ACTIONS.REGISTER_SUCCESS
+  type: ACTIONS.REGISTER_SUCCESS
 });
 
-export const setRedirectUrl = (currentURL) => ({
- [CALL_API]: {
-   endpoint: `${currentURL}`,
-   method: 'GET',
-   types: [
-     ACTIONS.GET_LOGIN_REQUEST,
-     ACTIONS.GET_LOGIN_SUCCESS,
-     ACTIONS.GET_LOGIN_FAILURE
-   ]
- }
+export const logout = () => ({
+  type: ACTIONS.LOGOUT
 });

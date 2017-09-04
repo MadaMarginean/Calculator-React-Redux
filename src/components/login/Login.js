@@ -4,8 +4,6 @@ import usernameImage from '../../assets/username.png';
 import passwordImage from '../../assets/password.png';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { login } from '../../actions/login';
 import { LOGIN_SUCCESS } from '../../config/constants';
 import { Link } from 'react-router-dom';
 import { required, minLength } from '../../utility/validations';
@@ -87,20 +85,4 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  let rememberMe = localStorage.getItem("Remember me") === 'true';
-
-  return {
-    initialValues: {
-      username: (rememberMe) ? localStorage.getItem("Username") : "",
-      password: '',
-      checkbox: rememberMe
-    }
-  };
-}
-
-const mapDispatchToProps = ({
-  submitFormAction: login
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(form(Login));
+export default (form(Login));

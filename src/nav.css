@@ -27,3 +27,7 @@ li a:hover:not(.active) {
 
 .paths {
   margin-left: 150px; }
+
+.log-out {
+  text-decoration: underline;
+}

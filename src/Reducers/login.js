@@ -1,10 +1,11 @@
 import {
   LOGIN_SUCCESS,
-  REGISTER_SUCCESS
+  REGISTER_SUCCESS,
+  LOGOUT
 } from '../config/constants';
 
 const loginDefaultState = {
-  userToken: null
+  userToken: 'sknds'
 };
 
 const login = (state = loginDefaultState, action) => {
@@ -17,7 +18,13 @@ const login = (state = loginDefaultState, action) => {
     case REGISTER_SUCCESS:
       console.log("Register Success!");
       break;
-      default:
+
+    case LOGOUT:
+      return Object.assign({}, state, {
+        userToken: null
+      });
+
+    default:
         return state;
     }
 }

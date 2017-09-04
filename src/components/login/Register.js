@@ -1,13 +1,10 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
 import './register.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { register } from '../../actions/login';
 import { required, minLength, matchPassword } from '../../utility/validations';
-import { renderTextField, renderCheckbox } from '../../utility/redux-form-components';
+import { renderTextField } from '../../utility/redux-form-components';
 
 const form = reduxForm({
   form: 'Register',
@@ -74,8 +71,4 @@ class Register extends React.Component {
   }
 }
 
-const mapDispatchToProps = ({
-  submitFormAction: register
-});
-
-export default connect(null, mapDispatchToProps)(form(Register));
+export default (form(Register));

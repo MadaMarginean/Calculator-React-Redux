@@ -1,5 +1,5 @@
 import React from 'react';
-import Login from './Login';
+import LoginContainer from '../../containers/LoginContainer';
 import BlueLayout from '../common/BlueLayout';
 
 class LoginPage extends React.Component {
@@ -8,7 +8,7 @@ class LoginPage extends React.Component {
       <BlueLayout>
         <div className="log-in-text">Log in</div>
         <div className="login-page">
-          <Login />
+          <LoginContainer />
         </div>
       </BlueLayout>
     );

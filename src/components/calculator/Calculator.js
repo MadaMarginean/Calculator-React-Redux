@@ -4,14 +4,14 @@ import NumericButtonsContainer from '../../containers/NumericButtonsContainer';
 import SpecialButtonsContainer from '../../containers/SpecialButtonsContainer';
 import DisplayScreenContainer from '../../containers/DisplayScreenContainer';
 import PropTypes from "prop-types";
-import Nav from '../../Nav';
+import NavContainer from '../../containers/NavContainer';
 import '../common/common.css';
 
 class Calculator extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <NavContainer />
           <div className="common">
             <div className = "calculator" style = {{background: this.props.calcBackground}}>
               <DisplayScreenContainer />

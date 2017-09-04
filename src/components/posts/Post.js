@@ -8,8 +8,8 @@ import CommentBox from './CommentBox';
 import Comments from './Comments';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
-import EditPostForm from './EditPostForm';
-import Nav from '../../Nav';
+import EditPostFormContainer from '../../containers/EditPostFormContainer';
+import NavContainer from '../../containers/NavContainer';
 import '../common/common.css';
 
 class Post extends Component {
@@ -58,7 +58,7 @@ class Post extends Component {
 
     return (
       <div>
-        <Nav />
+        <NavContainer />
           <div className="common">
             <div className="Post">
               <Card>
@@ -86,7 +86,7 @@ class Post extends Component {
                     open={this.state.openEdit}
                     onRequestClose={this.handleClose}
                   >
-                    <EditPostForm handleClose={this.handleClose} />
+                    <EditPostFormContainer handleClose={this.handleClose} />
                   </Dialog>
 
                   <RaisedButton label="Add a comment" className = "edit-post-btn" onClick={this.handleOpenAdd} primary={true} />

@@ -1,22 +1,14 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { editAPost } from '../../actions/posts';
 import TextField from 'material-ui/TextField';
+
 import './editPostForm.css';
 import { required, minLength } from '../../utility/validations';
 
-const form = reduxForm({
-  form: 'EditPostForm',
-  enableReinitialize: true,
-  keepDirtyOnReinitialize: true
-});
-
 const renderTextField = props => {
-  let { input } = props;
-  let { meta: { touched, error } } = props;
+  let { input, meta: { touched, error } } = props;
 
-  return(
+  return (
     <div>
       <TextField
         hintText={props.label}
@@ -75,18 +67,8 @@ class EditPostForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    initialValues: state.posts.onePost
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    submitFormAction: function(onePost) {
-      dispatch(editAPost(onePost));
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(form(EditPostForm));
+export default reduxForm({
+  form: 'EditPostForm',
+  enableReinitialize: true,
+  keepDirtyOnReinitialize: true
+})(EditPostForm);

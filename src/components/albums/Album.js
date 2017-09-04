@@ -6,7 +6,7 @@ import GridListSubheaderAlbum from './GridListSubheaderAlbum';
 import AppBarAlbum from './AppBarAlbum';
 import TableImages from './TableImages';
 import TableOneAlbum from './TableOneAlbum';
-import Nav from '../../Nav';
+import NavContainer from '../../containers/NavContainer';
 import '../common/common.css';
 
 class Album extends Component {
@@ -20,7 +20,7 @@ class Album extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <NavContainer />
           <div className="common">
             <div className="albumPage">
               <AppBarAlbum />

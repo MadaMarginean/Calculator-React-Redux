@@ -2,24 +2,27 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './nav.css';
 
-export default class Nav extends React.Component {
+class Nav extends React.Component {
   render() {
     return (
       <nav className="Nav">
-        <div className="Nav__container">
-          <div className="Nav__right">
-            <ul className="Nav__item-wrapper">
-              <li className="Nav__item">
-                <Link className="Nav__link" to="/">Home</Link>
+        <div>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
               </li>
-              <li className="Nav__item">
-                <Link className="Nav__link" to="/calculator">Calculator</Link>
+              <li>
+                <Link to="/calculator">Calculator</Link>
               </li>
-              <li className="Nav__item">
-                <Link className="Nav__link" to="/albums">Albums</Link>
+              <li>
+                <Link to="/albums">Albums</Link>
               </li>
-              <li className="Nav__item">
-                <Link className="Nav__link" to="/posts">Posts</Link>
+              <li>
+                <Link to="/posts">Posts</Link>
+              </li>
+              <li className="log-out">
+                <Link to="/login" onClick = {this.props.logout}>Log out</Link>
               </li>
             </ul>
           </div>
@@ -28,3 +31,5 @@ export default class Nav extends React.Component {
     );
   }
 }
+
+export default Nav;

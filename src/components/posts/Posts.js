@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PostsPreview from './PostsPreview';
 import '../common/common.css';
-import Nav from '../../Nav';
+import NavContainer from '../../containers/NavContainer';
 
 class Posts extends Component {
   componentWillMount() {
@@ -13,7 +13,7 @@ class Posts extends Component {
 
     return (
       <div>
-        <Nav />
+        <NavContainer />
         <div className = "common" >
           <PostsPreview postsArray = {this.props.postsArray} />
         </div>

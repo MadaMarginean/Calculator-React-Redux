@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AlbumPreview from './AlbumPreview';
-import Nav from '../../Nav';
+import NavContainer from '../../containers/NavContainer';
 import '../common/common.css';
 
 class Albums extends Component {
@@ -12,7 +12,7 @@ class Albums extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <NavContainer />
         <div className = "common">
           {
             this.props.albumsObj.map((albumObj) => (
