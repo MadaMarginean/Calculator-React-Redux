@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import {editAPost} from '../Actions/actions';
 import TextField from 'material-ui/TextField';
 import './EditPostForm.css';
-const { DOM: { input } } = React;
 
 const form = reduxForm({
   form: 'EditPostForm',
@@ -13,9 +12,8 @@ const form = reduxForm({
 });
 
 const renderTextField = props => {
-  console.log('propsssssssss', props);
   let { input } = props;
-  let { meta: { touched, error, warning } } = props;
+  let { meta: { touched, error } } = props;
 
   return(
     <div>
@@ -39,7 +37,7 @@ class EditPostForm extends Component {
   }
 
   render() {
-    const { handleSubmit, handleClose } = this.props;
+    const { handleSubmit } = this.props;
 
     return (
       <div>

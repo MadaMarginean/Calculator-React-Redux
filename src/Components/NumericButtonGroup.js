@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './NumericButtonGroup.css';
+import './NumericButtonGroup.scss';
 import Button from './Button';
 
 

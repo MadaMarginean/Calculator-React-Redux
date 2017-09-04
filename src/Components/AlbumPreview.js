@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+// import './AlbumPreview.css';
 
 class AlbumPreview extends Component {
   render() {
@@ -8,13 +9,14 @@ class AlbumPreview extends Component {
     let { id, title} = this.props;
 
     return(
-      
-      <Link to={'/albums/' + id}>
-        <div className = 'Album'>
-          <span>{id}. </span>
-          <span>{title}</span>
-        </div>
-      </Link>
+      <div className = "AlbumPreview" >
+        <Link to={'/albums/' + id}>
+          <div className = 'Album'>
+            <span>{id}. </span>
+            <span>{title}</span>
+          </div>
+        </Link>
+      </div>
     );
   }
 }

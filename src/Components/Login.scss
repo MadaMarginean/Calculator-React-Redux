@@ -1,0 +1,81 @@
+.login-page {
+  .body {
+    padding: 40px;
+    width: 200px;
+  	height: 150px;
+    margin-left: -37px;
+    margin-top: 20px;
+    background: #FFFAF0;
+  }
+
+  .text-fieldss {
+    margin-top: -110px;
+    margin-left: 20px;
+    width: 200px;
+  	height: 150px;
+  }
+
+  .images{
+    width: 50px;
+  	height: 140px;
+    margin-left: -25px;
+    margin-top:-60px;
+  }
+
+  .img {
+    width: 70%;
+    left: 0px;
+    right: 0px;
+    margin-top: 15px;
+  }
+
+  .username {
+    margin-top: 10px
+  }
+
+  div.login-btn {
+    margin-top: 10px;
+    margin-left: 70px;
+    width: 275px;
+  }
+
+  #remember-me {
+    width: 40px;
+    height: 20px;
+  }
+
+  label {
+    color: #BEBEBE;
+  }
+
+  .checkbox {
+    display: flex;
+    margin-top: 30px;
+    margin-left: -30px;
+    height: 20px;
+  }
+
+  .register-now {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+
+  .forgot-passwordd {
+    margin-top: -20px;
+    margin-left: 145px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #00bcd4;
+    white-space: nowrap;
+  }
+
+  .btn-and-down-textt {
+    display: block;
+    width: 275px;
+    height: 80px;
+    margin-left: -40px;
+    margin-top: 20px;
+  }
+}

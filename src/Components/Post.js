@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
-import './Post.css';
+import './Post.scss';
 import CommentBox from './CommentBox';
 import Comments from './Comments';
 import Dialog from 'material-ui/Dialog';
 import RaisedButton from 'material-ui/RaisedButton';
 import EditPostForm from './EditPostForm';
+import Nav from '../Nav';
+import './common.css';
 
 class Post extends Component {
 
@@ -56,50 +58,55 @@ class Post extends Component {
 
     return (
       <div>
-        <Card>
-          <CardHeader
-            title= {this.props.user.name}
-            subtitle= {this.props.user.username}
-          />
+        <Nav />
+          <div className="common">
+            <div className="Post">
+              <Card>
+                <CardHeader
+                  title= {this.props.user.name}
+                  subtitle= {this.props.user.username}
+                />
 
-         <CardMedia
-            overlay={<CardTitle title= {this.props.user.website}  />}
-          >
-            <img src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="" />
-          </CardMedia>
+               <CardMedia
+                  overlay={<CardTitle title= {this.props.user.website}  />}
+                >
+                  <img src="http://www.gettyimages.com/gi-resources/images/Embed/new/embed2.jpg" alt="" />
+                </CardMedia>
 
-          <CardTitle title = {this.props.onePost.title} />
-          <CardText>
-            {this.props.onePost.body}
-          </CardText>
-          <CardActions>
-            <RaisedButton label="Edit post" className = "edit-post-btn" onClick={this.handleOpenEdit} primary={true} />
-            <Dialog
-              title="Edit post"
-              actions={actions}
-              modal={false}
-              open={this.state.openEdit}
-              onRequestClose={this.handleClose}
-            >
-              <EditPostForm handleClose={this.handleClose} />
-            </Dialog>
+                <CardTitle title = {this.props.onePost.title} />
+                <CardText>
+                  {this.props.onePost.body}
+                </CardText>
+                <CardActions>
+                  <RaisedButton label="Edit post" className = "edit-post-btn" onClick={this.handleOpenEdit} primary={true} />
+                  <Dialog
+                    title="Edit post"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.openEdit}
+                    onRequestClose={this.handleClose}
+                  >
+                    <EditPostForm handleClose={this.handleClose} />
+                  </Dialog>
 
-            <RaisedButton label="Add a comment" className = "edit-post-btn" onClick={this.handleOpenAdd} primary={true} />
-            <Dialog
-              title="Add a comment"
-              actions={actions}
-              modal={false}
-              open={this.state.openAdd}
-              onRequestClose={this.handleClose}
-            >
-              <CommentBox onSubmitValidated ={this.onCreateSubmitValidated.bind(this)} />
-            </Dialog>
-          </CardActions>
-        </Card>
+                  <RaisedButton label="Add a comment" className = "edit-post-btn" onClick={this.handleOpenAdd} primary={true} />
+                  <Dialog
+                    title="Add a comment"
+                    actions={actions}
+                    modal={false}
+                    open={this.state.openAdd}
+                    onRequestClose={this.handleClose}
+                  >
+                    <CommentBox onSubmitValidated ={this.onCreateSubmitValidated.bind(this)} />
+                  </Dialog>
+                </CardActions>
+              </Card>
 
-        <div className = "comments">Comments</div>
-        <Comments comments = {this.props.comments} onSubmitValidated = {this.onEditSubmitValidated.bind(this)}/>
-      </div>
+              <div className = "comments">Comments</div>
+              <Comments comments = {this.props.comments} onSubmitValidated = {this.onEditSubmitValidated.bind(this)}/>
+            </div>
+          </div>
+        </div>
 
     );
   }

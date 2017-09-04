@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AlbumPreview from './AlbumPreview';
-
+import Nav from '../Nav';
+import './common.css';
 
 class Albums extends Component {
 
@@ -12,12 +13,15 @@ class Albums extends Component {
   render() {
 
     return (
-      <div className = "Albums" >
-        {
-          this.props.albumsObj.map((albumObj) => (
-            <AlbumPreview key={albumObj.id} {...albumObj} />
-          ))
-        }
+      <div>
+        <Nav />
+        <div className = "common">
+          {
+            this.props.albumsObj.map((albumObj) => (
+              <AlbumPreview key={albumObj.id} {...albumObj} />
+            ))
+          }
+        </div>
       </div>
     );
   }

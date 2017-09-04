@@ -6,6 +6,8 @@ import GridListSubheaderAlbum from './GridListSubheaderAlbum';
 import AppBarAlbum from './AppBarAlbum';
 import TableImages from './TableImages';
 import TableOneAlbum from './TableOneAlbum';
+import Nav from '../Nav';
+import './common.css';
 
 class Album extends Component {
 
@@ -19,19 +21,24 @@ class Album extends Component {
   render() {
     return (
       <div>
-        <AppBarAlbum />
+        <Nav />
+          <div className="common">
+            <div className="albumPage">
+              <AppBarAlbum />
 
-        <div className = "album">
-            <TableOneAlbum oneAlbum = {this.props.oneAlbum} />
+              <div className = "album">
+                  <TableOneAlbum oneAlbum = {this.props.oneAlbum} />
+              </div>
+
+            <TableImages photosOfAnAlbum = {this.props.photosOfAnAlbum}/>
+
+            <GridListAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
+
+            <GridListSubheaderAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
+
+            </div>
+          </div>
         </div>
-
-      <TableImages photosOfAnAlbum = {this.props.photosOfAnAlbum}/>
-
-      <GridListAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
-
-      <GridListSubheaderAlbum photosOfAnAlbum = {this.props.photosOfAnAlbum} />
-
-      </div>
     );
   }
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getInfoAboutAPost, clearPage, getUser, getCommentsForAPost, addAComment, editAComment, editAPost } from '../Actions/actions';
+import { getInfoAboutAPost, clearPage, getUser, getCommentsForAPost, addAComment, editAComment } from '../Actions/actions';
 import Post from '../Components/Post'
 
 const mapStateToProps = state => {

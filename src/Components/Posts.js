@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PostsPreview from './PostsPreview';
+import './common.css';
+import Nav from '../Nav';
 
 class Posts extends Component {
 
@@ -11,8 +13,11 @@ class Posts extends Component {
   render() {
 
     return (
-      <div className = "Posts" >
-        <PostsPreview postsArray = {this.props.postsArray} />
+      <div>
+        <Nav />
+        <div className = "common" >
+          <PostsPreview postsArray = {this.props.postsArray} />
+        </div>
       </div>
     );
   }

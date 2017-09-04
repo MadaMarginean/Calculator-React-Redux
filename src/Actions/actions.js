@@ -43,6 +43,55 @@ export const PUT_COMMENT_FAILURE = "PUT_COMMENT_FAILURE";
 export const PUT_POST_REQUEST = "PUT_POST_REQUEST";
 export const PUT_POST_SUCCESS = "PUT_POST_SUCCESS";
 export const PUT_POST_FAILURE = "PUT_POST_FAILURE";
+export const GET_HOME_REQUEST = 'GET_HOME_REQUEST';
+export const GET_HOME_SUCCESS = 'GET_HOME_SUCCESS';
+export const GET_HOME_FAILURE = 'GET_HOME_FAILURE';
+export const GET_LOGIN_REQUEST = 'GET_LOGIN_REQUEST';
+export const GET_LOGIN_SUCCESS = 'GET_LOGIN_SUCCESS';
+export const GET_LOGIN_FAILURE = 'GET_LOGIN_FAILURE';
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
+
+export const loginRequest = (credentials) => ({
+    [CALL_API]: {
+      endpoint: `https://www.trudonapp.com/api/users/authenticate`,
+      method: 'POST',
+      types: [
+        LOGIN_REQUEST,
+        LOGIN_SUCCESS,
+        LOGIN_FAILURE
+      ],
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: credentials.username,
+        password: credentials.password
+      })
+    }
+});
+
+export const login = credentials => dispatch => {
+  return dispatch(loginRequest(credentials));
+}
+
+export const register = () => ({
+    type: REGISTER_SUCCESS
+});
+
+export const setRedirectUrl = (currentURL) => ({
+ [CALL_API]: {
+   endpoint: `${currentURL}`,
+   method: 'GET',
+   types: [
+     GET_LOGIN_REQUEST,
+     GET_LOGIN_SUCCESS,
+     GET_LOGIN_FAILURE
+   ]
+ }
+});
 
 export const getAllAlbums = {
   [CALL_API]: {
@@ -195,9 +244,9 @@ export const getPhotosOfAnAlbum = function(id) {
   };
 }
 
-export const clearPage = {
+export const clearPage = () => ({
     type: CLEAR_PAGE
-}
+});
 
 export const concatenateToNumber = function (digit) {
   return {
