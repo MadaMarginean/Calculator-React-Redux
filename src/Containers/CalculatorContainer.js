@@ -1,11 +1,9 @@
 import { connect } from 'react-redux';
-import Calculator from '../Components/Calculator';
+import Calculator from '../components/calculator/Calculator';
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     calcBackground: state.calculator.calcBackground
-  }
-};
+});
 
 const displayCalculatorContainer = connect(mapStateToProps, null)(Calculator);
 

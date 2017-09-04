@@ -4,7 +4,7 @@ import {
   GET_ALBUM_SUCCESS,
   GET_PHOTOS_SUCCESS,
   CLEAR_PAGE
-} from '../Actions/actions';
+} from '../config/constants';
 
 const albumsDefaultState = {
   albumsObj: [],

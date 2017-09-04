@@ -1,6 +1,6 @@
-import { connect } from 'react-redux'
-import { concatenateToNumber } from '../Actions/actions'
-import NumericButtonGroup from '../Components/NumericButtonGroup'
+import { connect } from 'react-redux';
+import { concatenateToNumber } from '../actions/calculator';
+import NumericButtonGroup from '../components/calculator/NumericButtonGroup';
 
 const mapDispatchToProps = dispatch => {
   return {

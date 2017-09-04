@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import { apiMiddleware } from 'redux-api-middleware';
-import reducers from '../Reducers/index';
+import reducers from '../reducers/index';
 
 const createStoreWithMiddleware = applyMiddleware(ReduxThunk, apiMiddleware)(createStore);
 

@@ -7,7 +7,7 @@ import {
   POST_COMMENT_SUCCESS,
   PUT_COMMENT_SUCCESS,
   PUT_POST_SUCCESS
-} from '../Actions/actions';
+} from '../config/constants';
 
 const postsDefaultState = {
   postsArray: [],

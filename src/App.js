@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router';
-import Home from './Components/Home';
-import AlbumsContainer from './Containers/AlbumsContainer';
-import AlbumContainer from './Containers/AlbumContainer';
-import PostsContainer from './Containers/PostsContainer';
-import PostContainer from './Containers/PostContainer';
-import CalculatorContainer from './Containers/CalculatorContainer';
-import Nav from './Nav';
-import LoginPage from './Components/LoginPage';
-import RegisterPage from './Components/RegisterPage';
+import Home from './components/home/Home';
+import AlbumsContainer from './containers/AlbumsContainer';
+import AlbumContainer from './containers/AlbumContainer';
+import PostsContainer from './containers/PostsContainer';
+import PostContainer from './containers/PostContainer';
+import CalculatorContainer from './containers/CalculatorContainer';
+import LoginPage from './components/login/LoginPage';
+import RegisterPage from './components/login/RegisterPage';
 import './nav.css';
 import browserHistory from './history';
 import { Router } from 'react-router';
-import IsAuth from './Containers/IsAuth';
+import IsAuth from './containers/IsAuth';
 
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
-  componentDidUpdate(prevProps) {
-    const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn
-  }
-
   onChangeRoute(a, b, c) {
     console.log('route changed', a, b, c);
   }
@@ -76,11 +71,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    isLoggedIn: state.login.userToken != null,
-    redirectUrl: state.redirectUrl
-  }
-}
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.login.userToken != null,
+  redirectUrl: state.redirectUrl
+});
 
 export default connect(mapStateToProps)(App);

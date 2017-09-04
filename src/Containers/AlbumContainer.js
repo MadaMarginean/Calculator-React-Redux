@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
-import { getInfoAboutAnAlbum, getPhotosOfAnAlbum, clearPage } from '../Actions/actions';
-import Album from '../Components/Album'
+import {
+getInfoAboutAnAlbum,
+getPhotosOfAnAlbum
+} from '../actions/albums';
+import clearPage from '../actions/commonActions';
+import Album from '../components/albums/Album';
 
 const mapStateToProps = state => ({
   oneAlbum: state.albums.oneAlbum,

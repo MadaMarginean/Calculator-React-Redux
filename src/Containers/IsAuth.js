@@ -9,7 +9,7 @@ function IsAuth(shouldBeAuthenticated) {
 
     class AuthWrapper extends Component {
       render() {
-        if (shouldBeAuthenticated == this.props.isAuthenticated) {
+        if (shouldBeAuthenticated === this.props.isAuthenticated) {
           return <WrappedComponent {...this.props} />;
         }
 

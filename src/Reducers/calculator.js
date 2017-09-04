@@ -7,7 +7,7 @@ import {
   DIVISION,
   EQUAL,
   CHANGE_DISPLAY_COLOR
-} from '../Actions/actions.js'
+} from '../config/constants';
 
 let calculatorDefaultState = {
   digitsString: '',

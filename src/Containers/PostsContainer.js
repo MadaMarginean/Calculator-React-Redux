@@ -1,20 +1,14 @@
 import { connect } from 'react-redux';
-import { getAllPosts } from '../Actions/actions';
-import Posts from '../Components/Posts'
+import { getAllPosts } from '../actions/posts';
+import Posts from '../components/posts/Posts';
 
-const mapStateToProps = state => {
-  return {
-    postsArray: state.posts.postsArray
-  }
+const mapStateToProps = state => ({
+  postsArray: state.posts.postsArray
+});
+
+const mapDispatchToProps = {
+  requestAllPosts: getAllPosts
 };
-
-const mapDispatchToProps = dispatch => {
-  return {
-    requestAllPosts: function() {
-      dispatch(getAllPosts)
-    }
-  };
-}
 
 const displayPostsContainer = connect(mapStateToProps, mapDispatchToProps)(Posts);
 

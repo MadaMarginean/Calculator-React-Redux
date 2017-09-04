@@ -1,7 +1,10 @@
-import { LOGIN_SUCCESS, REGISTER_SUCCESS, GET_HOME_SUCCESS } from '../Actions/actions';
+import {
+  LOGIN_SUCCESS,
+  REGISTER_SUCCESS
+} from '../config/constants';
 
 const loginDefaultState = {
-  userToken: 'asdasdas'
+  userToken: null
 };
 
 const login = (state = loginDefaultState, action) => {
